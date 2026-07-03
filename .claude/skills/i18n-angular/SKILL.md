@@ -5,6 +5,10 @@ description: Gestisce i file JSON di traduzione (i18n) del progetto Angular basa
 
 # i18n-angular
 
+- Quando viene richeisto di creare i lang o i18n:
+1. usare la cartella src del progetto
+2. sostituire tutte le strighe hardcoded prima in tutti gli html e successivamente nei file ts.
+
 ## Struttura
 
 `src/assets/i18n/<lingua>.json` (es. `it.json`, `en.json`). Stessa struttura di chiavi in tutte le lingue, cambia solo il valore.

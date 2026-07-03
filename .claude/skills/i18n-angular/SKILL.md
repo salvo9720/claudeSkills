@@ -31,10 +31,19 @@ TS: `this.translate.instant('components.userProfile.saveButton')`
 
 Variabili: `"welcomeUser": "Benvenuto, {{name}}!"` → `{{ 'components.loginPage.welcomeUser' | translate: { name: user.name } }}`
 
-## Flusso
+## Flusso nuova installazione e creazione file di lang
 
 1. Leggi tutti i file lingua in `src/assets/i18n/`.
 2. Trova o crea la sezione del componente.
 3. Aggiungi/modifica la chiave in **tutte** le lingue (se manca il testo per una lingua, traduci tu e segnalalo come da rivedere).
 4. Aggiorna in `src` ogni punto (template + TS) che usava il testo hardcoded o la vecchia chiave.
 5. Controlla che tutte le lingue abbiano le stesse chiavi. Chiavi orfane trovate → segnala, non rimuovere senza conferma.
+
+## Flusso migrazioni chaivi 
+1. verifica che tutti i file di lang abbiamo le stess chiavi. 
+2. scegline uno e salva in un json una mappa con vecchie chaivi e nuove.
+3. applica le modifiche e aggirona le chaivi basandoti sui file. 
+
+## Flusso aggiutna chaivi in i18n gia configurato o presente
+1. Quando si verifica l'aggiutna di una chaive verifica se il compoente ha gia la sua chaive creata.
+2. tra questi verifica i valori di traduzione se ne trovi uno ugaule a 100% della striga da aiigunere usa quella, altrimenti crea la chaive sotto la chaive del nome del componete, 

@@ -1,0 +1,4 @@
+.claude/**.json
+.claude/.**/**
+
+!.claude/skills/**/**.md

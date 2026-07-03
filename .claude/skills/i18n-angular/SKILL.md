@@ -1,0 +1,40 @@
+---
+name: i18n-angular
+description: Gestisce i file JSON di traduzione (i18n) del progetto Angular basato su ngx-translate, in src/assets/i18n/. Usa questa skill quando l'utente chiede di aggiungere, modificare, rinominare testi visibili nell'interfaccia, anche senza dire "i18n" o "traduzione" (es. "cambia questa label", "questo testo è hardcoded"). Usa anche per sincronizzare chiavi tra lingue o pulire chiavi non usate.
+---
+
+# i18n-angular
+
+## Struttura
+
+`src/assets/i18n/<lingua>.json` (es. `it.json`, `en.json`). Stessa struttura di chiavi in tutte le lingue, cambia solo il valore.
+
+```json
+{
+  "components": {
+    "userProfile": {
+      "saveButton": "Salva modifiche"
+    }
+  }
+}
+```
+
+- Chiavi in lowerCamelCase.
+- Nome componente = nome del file kebab-case convertito in lowerCamelCase (`user-profile.component.ts` → `userProfile`).
+- Chiave parlante sul contenuto, non generica (`saveButton`, non `text1`).
+- Sezione già esistente per quel componente → aggiungi lì, non duplicare.
+
+## Uso nel codice
+
+Template: `{{ 'components.userProfile.saveButton' | translate }}`
+TS: `this.translate.instant('components.userProfile.saveButton')`
+
+Variabili: `"welcomeUser": "Benvenuto, {{name}}!"` → `{{ 'components.loginPage.welcomeUser' | translate: { name: user.name } }}`
+
+## Flusso
+
+1. Leggi tutti i file lingua in `src/assets/i18n/`.
+2. Trova o crea la sezione del componente.
+3. Aggiungi/modifica la chiave in **tutte** le lingue (se manca il testo per una lingua, traduci tu e segnalalo come da rivedere).
+4. Aggiorna in `src` ogni punto (template + TS) che usava il testo hardcoded o la vecchia chiave.
+5. Controlla che tutte le lingue abbiano le stesse chiavi. Chiavi orfane trovate → segnala, non rimuovere senza conferma.

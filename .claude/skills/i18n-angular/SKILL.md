@@ -43,11 +43,15 @@ Variabili: `"welcomeUser": "Benvenuto, {{name}}!"` → `{{ 'components.loginPage
 4. Aggiorna in `src` ogni punto (template + TS) che usava il testo hardcoded o la vecchia chiave.
 5. Controlla che tutte le lingue abbiano le stesse chiavi. Chiavi orfane trovate → segnala, non rimuovere senza conferma.
 
-## Flusso migrazioni chaivi 
+## Flusso migrazioni chiavi 
 1. verifica che tutti i file di lang abbiamo le stess chiavi. 
-2. scegline uno e salva in un json una mappa con vecchie chaivi e nuove.
-3. applica le modifiche e aggirona le chaivi basandoti sui file. 
+2. scegline uno e salva in un json una mappa con vecchie chiavi e nuove.
+3. applica le modifiche e aggirona le chiavi basandoti sui file. 
 
-## Flusso aggiutna chaivi in i18n gia configurato o presente
-1. Quando si verifica l'aggiutna di una chaive verifica se il compoente ha gia la sua chaive creata.
-2. tra questi verifica i valori di traduzione se ne trovi uno ugaule a 100% della striga da aiigunere usa quella, altrimenti crea la chaive sotto la chaive del nome del componete, 
+## Flusso aggiunta chiavi in i18n gia configurato o presente
+1. Quando si verifica l'aggiunta di una chaive verifica se il compoente ha gia la sua chaive creata.
+2. tra questi verifica i valori di traduzione se ne trovi uno ugaule a 100% della striga da aiigunere usa quella, altrimenti crea la chaive sotto la chaive del nome del componente.
+
+## Direttive di escusione
+Quanto trovi nel codice cose come:
+- isDevmode(): significa codice solo per la modalita sviluppo, non lavorare su questa linea.

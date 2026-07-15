@@ -11,7 +11,6 @@ Potrebbero capitare siutazioni tipo angualr 13 ha un check di tipo e quindi il c
 ``` typescript
 // angualr inference type case error in html file for this declaration
 ```
-.
 
 
 # Regole espressamente vietate:
